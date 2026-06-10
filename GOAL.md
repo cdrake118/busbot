@@ -21,8 +21,11 @@ signatures or in-person presence; the agents do everything else.
 1. **Minimal capital investment.** Prefer businesses that can launch for under
    a few hundred dollars (domains, hosting, basic tooling). No inventory-heavy,
    equipment-heavy, or capital-intensive models.
-2. **Organic growth.** Growth should come from SEO, content, word of mouth,
-   community presence, and product quality — not paid-ad dependence.
+2. **Efficient growth.** Default to organic channels — SEO, content, word of
+   mouth, community presence, and product quality. Paid advertising is allowed
+   when the return on investment is demonstrably strong: start with small test
+   budgets, measure customer acquisition cost against revenue per customer,
+   and scale spend only on proven positive returns.
 3. **Two-person headcount, forever.** Every business must be operable by two
    people plus AI agents. If a business can only grow by hiring, it doesn't fit.
 4. **AI-leverageable.** Favor businesses where the core work (content,
@@ -48,7 +51,8 @@ signatures or in-person presence; the agents do everything else.
 3. **Marketing engine.** Design and run the organic growth system per
    business: SEO/content pipelines, social presence, email, community
    engagement — automated wherever possible, with human review gates on
-   anything published under our names.
+   anything published under our names. Where paid ads make sense, propose
+   small ROI tests with clear success metrics before any scaled spend.
 4. **Operations.** Build the agent workflows that handle fulfillment, customer
    communication, and reporting. Track revenue and costs per business against
    the $100k year-1 target and flag anything off track.
