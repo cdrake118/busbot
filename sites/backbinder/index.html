@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BackBinder — Your agency's back office, run for you</title>
+<meta name="description" content="Same-day COIs, every renewal chased at 90/60/30, your book cross-sold. A done-for-you back office for independent insurance agencies — for less than one VA, with no one to manage.">
+<style>
+  :root {
+    --navy: #16283c;
+    --navy-soft: #24405e;
+    --ink: #1f2933;
+    --paper: #fbfaf7;
+    --line: #e3ded4;
+    --brass: #b07d2b;
+    --brass-dark: #8f6420;
+    --ok: #2e6b4f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Source Serif Pro", Georgia, "Times New Roman", serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .sans { font-family: "Helvetica Neue", Arial, sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .logo {
+    font-weight: 700; font-size: 1.25rem; color: var(--navy);
+    letter-spacing: -0.01em; text-decoration: none;
+  }
+  .logo span { color: var(--brass); }
+  .nav a.cta {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.85rem; text-decoration: none; color: #fff;
+    background: var(--navy); padding: 9px 18px; border-radius: 4px;
+  }
+
+  .hero { padding: 72px 0 56px; }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--navy); line-height: 1.15; letter-spacing: -0.02em;
+    max-width: 17ch;
+  }
+  .hero p.lede {
+    margin-top: 20px; font-size: 1.2rem; max-width: 56ch; color: #3d4852;
+  }
+  .hero .actions { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    display: inline-block; text-decoration: none; font-size: 0.95rem;
+    padding: 13px 26px; border-radius: 4px; font-weight: 600;
+  }
+  .btn-primary { background: var(--brass); color: #fff; }
+  .btn-primary:hover { background: var(--brass-dark); }
+  .btn-ghost { color: var(--navy); border: 1px solid var(--navy); }
+
+  .stats {
+    background: var(--navy); color: #e9e4d8; padding: 44px 0;
+  }
+  .stats .wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+  .stat blockquote { font-style: italic; font-size: 1.02rem; line-height: 1.5; }
+  .stat .big { font-size: 2.4rem; font-weight: 700; color: #fff; line-height: 1.1; }
+  .stat .src { display: block; margin-top: 10px; font-size: 0.75rem; opacity: 0.65; font-family: "Helvetica Neue", Arial, sans-serif; }
+
+  section.block { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  h2 { color: var(--navy); font-size: 1.7rem; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .kicker {
+    font-family: "Helvetica Neue", Arial, sans-serif; text-transform: uppercase;
+    letter-spacing: 0.12em; font-size: 0.72rem; color: var(--brass-dark); font-weight: 700;
+  }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 32px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 26px; }
+  .card h3 { color: var(--navy); font-size: 1.08rem; margin-bottom: 8px; }
+  .card p { font-size: 0.95rem; color: #3d4852; }
+  .card .tag {
+    font-family: "Helvetica Neue", Arial, sans-serif; display: inline-block;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ok); margin-bottom: 10px;
+  }
+
+  .eo { background: #f3efe6; }
+  .eo ul { margin: 24px 0 0 0; list-style: none; max-width: 64ch; }
+  .eo li { padding: 10px 0 10px 30px; position: relative; font-size: 1rem; }
+  .eo li::before { content: "—"; position: absolute; left: 0; color: var(--brass); font-weight: 700; }
+
+  .pricing-card {
+    background: #fff; border: 2px solid var(--navy); border-radius: 8px;
+    max-width: 460px; padding: 36px; margin-top: 28px;
+  }
+  .pricing-card .price { font-size: 2.6rem; font-weight: 700; color: var(--navy); }
+  .pricing-card .price small { font-size: 1rem; font-weight: 400; color: #6b7280; }
+  .pricing-card ul { list-style: none; margin: 18px 0 26px; }
+  .pricing-card li { padding: 6px 0 6px 26px; position: relative; font-size: 0.95rem; }
+  .pricing-card li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 700; }
+  .founders-note { font-size: 0.85rem; color: #6b7280; margin-top: 14px; max-width: 46ch; }
+
+  .newsletter { text-align: left; }
+  .newsletter .panel {
+    background: var(--navy); color: #e9e4d8; border-radius: 8px; padding: 40px;
+    margin-top: 28px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center;
+    justify-content: space-between;
+  }
+  .newsletter .panel h3 { color: #fff; font-size: 1.5rem; }
+  .newsletter .panel h3 em { color: var(--brass); font-style: italic; }
+  .newsletter .panel p { max-width: 48ch; font-size: 0.95rem; margin-top: 8px; }
+  /* beehiiv embed replaces this form at launch */
+  .nl-form { display: flex; gap: 8px; flex-wrap: wrap; }
+  .nl-form input {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.95rem;
+    padding: 12px 14px; border-radius: 4px; border: none; min-width: 240px;
+  }
+  .nl-form button {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.95rem; font-weight: 600;
+    padding: 12px 20px; border-radius: 4px; border: none; background: var(--brass);
+    color: #fff; cursor: pointer;
+  }
+
+  footer { padding: 40px 0 60px; font-size: 0.85rem; color: #6b7280; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  footer a { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/">Back<span>Binder</span></a>
+    <a class="cta sans" href="#pricing">Founding-client pricing</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">For independent insurance agencies</p>
+    <h1>Your agency's back office, run for you.</h1>
+    <p class="lede">
+      Same-day certificates. Every renewal touched at 90, 60, and 30 days.
+      Your book cross-sold every month. For less than the cost of one
+      virtual assistant — with no one to hire, train, or manage.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:hello@backbinder.com?subject=BackBinder%20intro%20call">Book an intro call</a>
+      <a class="btn btn-ghost" href="#how">How it works</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat">
+      <span class="big">51%</span>
+      <p>of agency employees say they're overwhelmed by their workload.</p>
+      <span class="src">2025 Independent Agents at Work Study (Liberty Mutual / Safeco)</span>
+    </div>
+    <div class="stat">
+      <blockquote>"It's fallen on the CSRs to do the retention work."</blockquote>
+      <span class="src">Agency principal, Big "I" hard-market survey, 2024</span>
+    </div>
+    <div class="stat">
+      <span class="big">90/60/30</span>
+      <p>The renewal cadence every agency intends to run — and almost none has the hands to.</p>
+      <span class="src">The reason BackBinder exists</span>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="wrap">
+    <p class="kicker">What we take off your desk</p>
+    <h2>Five jobs, done every day, without you chasing anyone.</h2>
+    <div class="cols">
+      <div class="card">
+        <span class="tag">SLA: 2 business hours</span>
+        <h3>The COI desk</h3>
+        <p>Certificate requests come into your mailbox like always. We prep the
+        ACORD 25 in your management system and queue it for your one-click
+        review and issue. Your license, your approval — our legwork.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Every policy, every time</span>
+        <h3>The renewal engine</h3>
+        <p>90/60/30-day touches on the whole book: remarketing checklists,
+        client outreach drafted in your voice, carrier documents chased so
+        your CSRs aren't doing it at 6pm.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Monthly</span>
+        <h3>Cross-sell campaigns</h3>
+        <p>A monthly campaign run against your own book — the personal-lines
+        gap on your commercial clients and vice versa — drafted for your
+        approval before anything sends.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Compounding</span>
+        <h3>Review &amp; referral ops</h3>
+        <p>Post-service Google review requests and referral nurture, timed
+        right and written like a human, because they are reviewed by one.</p>
+      </div>
+      <div class="card">
+        <span class="tag">First Monday of the month</span>
+        <h3>The ops report</h3>
+        <p>COI turnaround times, renewal touch rate, campaign results — one
+        page, numbers you can read in two minutes.</p>
+      </div>
+      <div class="card">
+        <span class="tag">What we never do</span>
+        <h3>The hard wall</h3>
+        <p>No coverage advice. No quoting decisions. No binding. Nothing
+        client-facing without your approval path. We do logistics; you do
+        insurance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block eo">
+  <div class="wrap">
+    <p class="kicker">Built around your E&amp;O, not in spite of it</p>
+    <h2>Ask any vendor these four questions. Here are our answers.</h2>
+    <ul>
+      <li><strong>Who issues the certificate?</strong> Your licensed agent does. We prep and queue; nothing carries your agency's name until a licensee approves it.</li>
+      <li><strong>What if it's wrong?</strong> Every outbound item passes a documented, human-reviewed QA process — we'll show you the checklist before you sign.</li>
+      <li><strong>Where does our client data live?</strong> In your AMS and your mailbox, where it already lives. We work inside your systems with agency-issued, least-privilege access you can revoke in one click.</li>
+      <li><strong>Will it sound robotic to my clients?</strong> Outreach is drafted in your agency's voice and approved by you until you tell us to stop asking.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="pricing">
+  <div class="wrap">
+    <p class="kicker">Pricing</p>
+    <h2>Less than a VA. No one to manage.</h2>
+    <div class="pricing-card">
+      <span class="sans" style="font-size:0.8rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--brass-dark);">Founding client rate</span>
+      <div class="price">$1,000<small>/month</small></div>
+      <ul class="sans">
+        <li>Full back-office package, all five jobs</li>
+        <li>Month-to-month — no contract, no setup fee</li>
+        <li>Live within two weeks of your AMS access</li>
+        <li>Direct line to the founders</li>
+      </ul>
+      <a class="btn btn-primary" href="mailto:hello@backbinder.com?subject=Founding%20client">Claim a founding slot</a>
+      <p class="founders-note sans">First five agencies only, in exchange for a
+      case study and honest feedback. Standard pricing is $1,500–$2,500/month
+      depending on book size. A managed dedicated VA runs $2,000–$4,500/month —
+      before the hours you spend managing them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block newsletter">
+  <div class="wrap">
+    <p class="kicker">From the same desk</p>
+    <h2>The operator's letter for Main Street agencies.</h2>
+    <div class="panel">
+      <div>
+        <h3>Premium <em>&amp;</em> Loss</h3>
+        <p>Benchmarks, staffing math, and ops teardowns for sub-$2M independent
+        agencies. No carrier agenda, no consulting funnel. Weekly, five minutes.</p>
+      </div>
+      <!-- Replace with beehiiv embed at launch -->
+      <form class="nl-form" action="#" method="post" onsubmit="alert('Newsletter signup launches soon — email hello@backbinder.com to get issue #1.'); return false;">
+        <input type="email" placeholder="you@youragency.com" required aria-label="Email address">
+        <button type="submit">Get issue #1</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 BackBinder · <a href="mailto:hello@backbinder.com">hello@backbinder.com</a></div>
+    <div>BackBinder is not a licensed insurance producer and does not sell, solicit, or negotiate insurance.</div>
+  </div>
+</footer>
+
+</body>
+</html>
