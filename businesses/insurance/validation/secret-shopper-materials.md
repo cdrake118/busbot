@@ -27,11 +27,25 @@ answering live).
 
 ## Infrastructure checklist (before batch 1)
 
-- [ ] Dedicated mailbox: `quotes@<persona-domain>` or a plain Gmail
-- [ ] Voicemail-only phone number (Google Voice); greeting: business name,
-      "please email us at..."
+*Decisions made (June 2026): domains purchased (backbinder.com,
+premiumandloss.com); persona = the real neutral-named entity shopping its
+genuine GL/E&O need.*
+
+- [ ] Google Workspace Business Starter on backbinder.com, with
+      premiumandloss.com as a secondary domain in the same org; SPF/DKIM/
+      DMARC configured from day one
+- [ ] **Study mailbox: plain Gmail for the persona entity** (or a ~$10
+      domain matching the LLC name). NEVER send study inquiries from
+      backbinder.com — a CSR who googles the domain would identify us as a
+      vendor and contaminate the responses
+- [ ] Voicemail-only number: **Google Voice free tier**, area code matching
+      the persona's city, Do Not Disturb ON (all calls → voicemail),
+      human-recorded greeting; auto-transcript emails forwarded to the study
+      mailbox. (ElevenLabs deliberately NOT used here — no AI may answer
+      live; reserve ElevenLabs Scribe for transcribing the Track 2 operator
+      interviews)
 - [ ] Logging sheet created from the schema below
-- [ ] Personas approved by Cory/Austin
+- [x] Persona approved (real entity, genuine shopping)
 - [ ] Batch 1 (first 10 agencies) messages reviewed and approved
 
 ## Persona A — commercial quote request (30 agencies)
